@@ -1,0 +1,184 @@
+﻿@model IEnumerable<Assignment1FIT5032.Models.Nutritional_Value>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Serving_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calories_From_Fat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Fat_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Fat_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sodium_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sodium_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Potassium_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Potassium_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Carbo_Hydrate_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Carbo_Hydrate_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dietary_Fiber_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dietary_Fiber_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sugar_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Protein_Gram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vitamin_A_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vitamin_C_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calcium_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iron_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saturated_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saturated_Milligram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chole_Sterol_Daily_Value_By_Precentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chole_Sterol_Milligram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Serving_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calories_From_Fat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Fat_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Fat_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sodium_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sodium_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Potassium_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Potassium_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Carbo_Hydrate_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Carbo_Hydrate_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dietary_Fiber_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dietary_Fiber_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sugar_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Protein_Gram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vitamin_A_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vitamin_C_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calcium_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Iron_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saturated_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saturated_Milligram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chole_Sterol_Daily_Value_By_Precentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chole_Sterol_Milligram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Nutritionable.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NutritionableStoreContainer">
+    <EntitySet Name="Nutritional_Value" EntityType="Nutritionable.Store.Nutritional_Value" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Nutritional_Value">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Food" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Serving_Gram" Type="float" Nullable="false" />
+    <Property Name="Calories" Type="float" Nullable="false" />
+    <Property Name="Calories_From_Fat" Type="float" Nullable="false" />
+    <Property Name="Total_Fat_Gram" Type="float" Nullable="false" />
+    <Property Name="Total_Fat_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Sodium_Gram" Type="float" Nullable="false" />
+    <Property Name="Sodium_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Potassium_Gram" Type="float" Nullable="false" />
+    <Property Name="Potassium_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Total_Carbo_Hydrate_Gram" Type="float" Nullable="false" />
+    <Property Name="Total_Carbo_Hydrate_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Dietary_Fiber_Gram" Type="float" Nullable="false" />
+    <Property Name="Dietary_Fiber_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Sugar_Gram" Type="float" Nullable="false" />
+    <Property Name="Protein_Gram" Type="float" Nullable="false" />
+    <Property Name="Vitamin_A_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Vitamin_C_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Calcium_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Iron_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Saturated_Daily_Value_By_Precentage" Type="float" Nullable="true" />
+    <Property Name="Saturated_Milligram" Type="float" Nullable="true" />
+    <Property Name="Chole_Sterol_Daily_Value_By_Precentage" Type="float" Nullable="false" />
+    <Property Name="Chole_Sterol_Milligram" Type="float" Nullable="false" />
+    <Property Name="Food_Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Nutritionable" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="NutritionableContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Nutritional_Value" EntityType="Nutritionable.Nutritional_Value" />
+        </EntityContainer>
+        <EntityType Name="Nutritional_Value">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Food" Type="String" Nullable="false" />
+          <Property Name="Serving_Gram" Type="Double" Nullable="false" />
+          <Property Name="Calories" Type="Double" Nullable="false" />
+          <Property Name="Calories_From_Fat" Type="Double" Nullable="false" />
+          <Property Name="Total_Fat_Gram" Type="Double" Nullable="false" />
+          <Property Name="Total_Fat_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Sodium_Gram" Type="Double" Nullable="false" />
+          <Property Name="Sodium_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Potassium_Gram" Type="Double" Nullable="false" />
+          <Property Name="Potassium_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Total_Carbo_Hydrate_Gram" Type="Double" Nullable="false" />
+          <Property Name="Total_Carbo_Hydrate_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Dietary_Fiber_Gram" Type="Double" Nullable="false" />
+          <Property Name="Dietary_Fiber_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Sugar_Gram" Type="Double" Nullable="false" />
+          <Property Name="Protein_Gram" Type="Double" Nullable="false" />
+          <Property Name="Vitamin_A_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Vitamin_C_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Calcium_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Iron_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Saturated_Daily_Value_By_Precentage" Type="Double" Nullable="true" />
+          <Property Name="Saturated_Milligram" Type="Double" Nullable="true" />
+          <Property Name="Chole_Sterol_Daily_Value_By_Precentage" Type="Double" Nullable="false" />
+          <Property Name="Chole_Sterol_Milligram" Type="Double" Nullable="false" />
+          <Property Name="Food_Type" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NutritionableStoreContainer" CdmEntityContainer="NutritionableContainer">
+    <EntitySetMapping Name="Nutritional_Value">
+      <EntityTypeMapping TypeName="IsTypeOf(Nutritionable.Nutritional_Value)">
+        <MappingFragment StoreEntitySet="Nutritional_Value">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="Serving_Gram" ColumnName="Serving_Gram" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="Calories_From_Fat" ColumnName="Calories_From_Fat" />
+          <ScalarProperty Name="Total_Fat_Gram" ColumnName="Total_Fat_Gram" />
+          <ScalarProperty Name="Total_Fat_Daily_Value_By_Precentage" ColumnName="Total_Fat_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Sodium_Gram" ColumnName="Sodium_Gram" />
+          <ScalarProperty Name="Sodium_Daily_Value_By_Precentage" ColumnName="Sodium_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Potassium_Gram" ColumnName="Potassium_Gram" />
+          <ScalarProperty Name="Potassium_Daily_Value_By_Precentage" ColumnName="Potassium_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Total_Carbo_Hydrate_Gram" ColumnName="Total_Carbo_Hydrate_Gram" />
+          <ScalarProperty Name="Total_Carbo_Hydrate_Daily_Value_By_Precentage" ColumnName="Total_Carbo_Hydrate_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Dietary_Fiber_Gram" ColumnName="Dietary_Fiber_Gram" />
+          <ScalarProperty Name="Dietary_Fiber_Daily_Value_By_Precentage" ColumnName="Dietary_Fiber_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Sugar_Gram" ColumnName="Sugar_Gram" />
+          <ScalarProperty Name="Protein_Gram" ColumnName="Protein_Gram" />
+          <ScalarProperty Name="Vitamin_A_Daily_Value_By_Precentage" ColumnName="Vitamin_A_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Vitamin_C_Daily_Value_By_Precentage" ColumnName="Vitamin_C_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Calcium_Daily_Value_By_Precentage" ColumnName="Calcium_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Iron_Daily_Value_By_Precentage" ColumnName="Iron_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Saturated_Daily_Value_By_Precentage" ColumnName="Saturated_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Saturated_Milligram" ColumnName="Saturated_Milligram" />
+          <ScalarProperty Name="Chole_Sterol_Daily_Value_By_Precentage" ColumnName="Chole_Sterol_Daily_Value_By_Precentage" />
+          <ScalarProperty Name="Chole_Sterol_Milligram" ColumnName="Chole_Sterol_Milligram" />
+          <ScalarProperty Name="Food_Type" ColumnName="Food_Type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

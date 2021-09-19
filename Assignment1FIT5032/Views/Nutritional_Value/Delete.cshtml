@@ -1,0 +1,233 @@
+﻿@model Assignment1FIT5032.Models.Nutritional_Value
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Nutritional_Value</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Food)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serving_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serving_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories_From_Fat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories_From_Fat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Fat_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Fat_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Fat_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Fat_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sodium_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sodium_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sodium_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sodium_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Potassium_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Potassium_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Potassium_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Potassium_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Carbo_Hydrate_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Carbo_Hydrate_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Carbo_Hydrate_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Carbo_Hydrate_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dietary_Fiber_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dietary_Fiber_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dietary_Fiber_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dietary_Fiber_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sugar_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sugar_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protein_Gram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protein_Gram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_A_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_A_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vitamin_C_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vitamin_C_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calcium_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calcium_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Iron_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iron_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saturated_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saturated_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saturated_Milligram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saturated_Milligram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chole_Sterol_Daily_Value_By_Precentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chole_Sterol_Daily_Value_By_Precentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chole_Sterol_Milligram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chole_Sterol_Milligram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
