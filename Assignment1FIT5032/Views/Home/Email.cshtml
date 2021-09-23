@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Email</h2>
+
+<form action="form1" method="post">
+    <table>
+        <tr>
+            <td>To: </td>
+            <td><input type="text" name="txtTo" /></td>
+        </tr>
+        <tr>
+            <td>SubjectTitle: </td>
+            <td><input type="text" name="txtSubjectTitle" /></td>
+        </tr>
+        <tr>
+            <td>Contents: </td>
+            <td><input type="text" name="txtContents" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit Form" /></td>
+        </tr>
+    </table>
+</form>

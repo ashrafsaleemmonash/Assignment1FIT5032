@@ -283,6 +283,7 @@
     <Content Include="Views\Nutritional_Value\Details.cshtml" />
     <Content Include="Views\Nutritional_Value\Edit.cshtml" />
     <Content Include="Views\Nutritional_Value\Index.cshtml" />
+    <Content Include="Views\Home\Email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
