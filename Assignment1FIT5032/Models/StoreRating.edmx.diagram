@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4c332016a3044870be8565591f0e9fbc" Name="Diagram1" ZoomLevel="172" >
+        <EntityTypeShape EntityType="StoreRating.Store" Width="1.5" PointX="3.625" PointY="2.5" />
+        <EntityTypeShape EntityType="StoreRating.Rating" Width="1.5" PointX="8.125" PointY="2.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

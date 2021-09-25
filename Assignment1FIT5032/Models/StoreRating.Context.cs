@@ -13,10 +13,10 @@ namespace Assignment1FIT5032.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NutritionableContainer : DbContext
+    public partial class StoreRatingContainer : DbContext
     {
-        public NutritionableContainer()
-            : base("name=NutritionableContainer")
+        public StoreRatingContainer()
+            : base("name=StoreRatingContainer")
         {
         }
     
@@ -25,10 +25,7 @@ namespace Assignment1FIT5032.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Nutritional_Value> Nutritional_Value { get; set; }
-
-        public System.Data.Entity.DbSet<Assignment1FIT5032.Models.Rating> Ratings { get; set; }
-
-        public System.Data.Entity.DbSet<Assignment1FIT5032.Models.Store> Stores { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
     }
 }

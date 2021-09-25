@@ -173,6 +173,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\Nutritional_ValueController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
+    <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +198,27 @@
     </Compile>
     <Compile Include="Models\Nutritional_Value.cs">
       <DependentUpon>Nutritionable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rating.cs">
+      <DependentUpon>StoreRating.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Store.cs">
+      <DependentUpon>StoreRating.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoreRating.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreRating.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoreRating.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreRating.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoreRating.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreRating.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -224,6 +247,17 @@
       <LastGenOutput>Nutritionable.cs</LastGenOutput>
       <DependentUpon>Nutritionable.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\StoreRating.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StoreRating.Context.cs</LastGenOutput>
+      <DependentUpon>StoreRating.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\StoreRating.edmx.sql" />
+    <Content Include="Models\StoreRating.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StoreRating.cs</LastGenOutput>
+      <DependentUpon>StoreRating.edmx</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Nutritionable.edmx">
@@ -232,6 +266,13 @@
     </EntityDeploy>
     <Content Include="Models\Nutritionable.edmx.diagram">
       <DependentUpon>Nutritionable.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\StoreRating.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoreRating.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StoreRating.edmx.diagram">
+      <DependentUpon>StoreRating.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -284,6 +325,16 @@
     <Content Include="Views\Nutritional_Value\Edit.cshtml" />
     <Content Include="Views\Nutritional_Value\Index.cshtml" />
     <Content Include="Views\Home\Email.cshtml" />
+    <Content Include="Views\Stores\Create.cshtml" />
+    <Content Include="Views\Stores\Delete.cshtml" />
+    <Content Include="Views\Stores\Details.cshtml" />
+    <Content Include="Views\Stores\Edit.cshtml" />
+    <Content Include="Views\Stores\Index.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
