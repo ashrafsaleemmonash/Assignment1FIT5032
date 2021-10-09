@@ -30,31 +30,31 @@ namespace Assignment1FIT5032.Models
         [DisplayName("Total Fat (Gram)")]
         public double Total_Fat_Gram { get; set; }
 
-        [DisplayName("Total Fat Daily Value By Precentage")]
+        [DisplayName("Total Fat Daily Value (%)")]
         public double Total_Fat_Daily_Value_By_Precentage { get; set; }
 
         [DisplayName("Sodium (Gram)")]
         public double Sodium_Gram { get; set; }
 
-        [DisplayName("Sodium Daily Value By Precentage")]
+        [DisplayName("Sodium Daily Value (%)")]
         public double Sodium_Daily_Value_By_Precentage { get; set; }
         
         [DisplayName("Potassium (Gram)")]
         public double Potassium_Gram { get; set; }
 
-        [DisplayName("Potassium Daily Value By Precentage")]
+        [DisplayName("Potassium Daily Value (%)")]
         public double Potassium_Daily_Value_By_Precentage { get; set; }
 
         [DisplayName("Total Carbo Hydrate (Gram)")]
         public double Total_Carbo_Hydrate_Gram { get; set; }
 
-        [DisplayName("Total Carbo Hydrate Daily Value By Precentage")]
+        [DisplayName("Total Carbo Hydrate Daily Value (%)")]
         public double Total_Carbo_Hydrate_Daily_Value_By_Precentage { get; set; }
         
         [DisplayName("Dietary Fiber (Gram)")]
         public double Dietary_Fiber_Gram { get; set; }
 
-        [DisplayName("Dietary Fiber Daily Value By Precentage")]
+        [DisplayName("Dietary Fiber Daily Value (%)")]
         public double Dietary_Fiber_Daily_Value_By_Precentage { get; set; }
 
         [DisplayName("Sugar (Gram)")]
@@ -63,25 +63,25 @@ namespace Assignment1FIT5032.Models
         [DisplayName("Protein (Gram)")]
         public double Protein_Gram { get; set; }
 
-        [DisplayName("Vitamin A Daily Value By Precentage")]
+        [DisplayName("Vitamin A Daily Value (%)")]
         public double Vitamin_A_Daily_Value_By_Precentage { get; set; }
 
-        [DisplayName("Vitamin C Daily Value By Precentage")]
+        [DisplayName("Vitamin C Daily Value (%)")]
         public double Vitamin_C_Daily_Value_By_Precentage { get; set; }
 
-        [DisplayName("Calcium Daily Value By Precentage")]
+        [DisplayName("Calcium Daily Value (%)")]
         public double Calcium_Daily_Value_By_Precentage { get; set; }
 
-        [DisplayName("Iron Daily Value By Precentage")]
+        [DisplayName("Iron Daily Value (%)")]
         public double Iron_Daily_Value_By_Precentage { get; set; }
         
-        [DisplayName("Saturated Daily Value By Precentage")]
+        [DisplayName("Saturated Daily Value (%)")]
         public Nullable<double> Saturated_Daily_Value_By_Precentage { get; set; }
 
         [DisplayName("Saturated Milligram")]
         public Nullable<double> Saturated_Milligram { get; set; }
 
-        [DisplayName("Chole Sterol Daily Value By Precentage")]
+        [DisplayName("Chole Sterol Daily Value (%)")]
         public double Chole_Sterol_Daily_Value_By_Precentage { get; set; }
 
         [DisplayName("Chole Sterol Milligram")]
@@ -91,6 +91,8 @@ namespace Assignment1FIT5032.Models
         public string Food_Type { get; set; }
 
         //Add locale date automatically or let them set it
+        
+        [DisplayName("Last Updated")]
         public System.DateTime Date { get; set; }
     }
 }

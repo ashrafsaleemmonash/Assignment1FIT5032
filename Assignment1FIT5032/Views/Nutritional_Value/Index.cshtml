@@ -10,7 +10,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    
+    <a onclick="showMore()" id="showMoreId" style="margin-left:20px">Show More</a>
+</div>
 <table class="table" id="myTable">
     <tr>
         <th>
@@ -25,7 +29,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Calories_From_Fat)
         </th>
-        <th>
+        <th style="display:none">
             @Html.DisplayNameFor(model => model.Total_Fat_Gram)
         </th>
         <th>
@@ -185,6 +189,44 @@
 </table>
 
 <script>
+    // Show More Function
+    window.onload = function initTable() {
+        var tableRows = myTable.rows;
+        for (i = 0; i < tableRows.length; i++) {
+            var count = 0;
+                for (let cell of tableRows[i].cells) {
+                    if (count > 3) {
+                        cell.style.display = "none";
+                    }
+                    count++;
+                }
+            }
+        }
+    function showMore() {
+        var tableRows = myTable.rows;
+        if (showMoreId.textContent == "Show More") {
+            for (i = 0; i < tableRows.length; i++) {
+                for (let cell of tableRows[i].cells) {
+                    cell.style.display = "";
+                }
+            }
+            showMoreId.textContent = "Show Less";
+        }
+        else if (showMoreId.textContent == "Show Less") {
+            for (i = 0; i < tableRows.length; i++) {
+                var count = 0;
+                for (let cell of tableRows[i].cells) {
+                    if (count > 3) {
+                        cell.style.display = "none";
+                    }
+                    count++;
+                }
+            }
+            showMoreId.textContent = "Show More";
+        }
+    }
+
+    // Search Function
     function myFunction() {
         // Declare variables
         var input, filter, table, tr, td, i, txtValue;
