@@ -40,8 +40,9 @@ namespace Assignment1FIT5032.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }   
+        }
 
+        // Email
         [HttpPost]
         //string txtTo, string txtSubjectTitle, string txtContents,
         public async Task<ActionResult> form1(string txtTo, string txtSubjectTitle, string txtContents, HttpPostedFileBase fileAttachment)
