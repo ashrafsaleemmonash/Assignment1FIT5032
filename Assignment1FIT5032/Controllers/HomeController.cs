@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Assignment1FIT5032.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()

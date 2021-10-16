@@ -227,6 +227,7 @@
     <Compile Include="Models\Rating.cs">
       <DependentUpon>StoreRating.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RatingAverage.cs" />
     <Compile Include="Models\Store.cs">
       <DependentUpon>StoreRating.tt</DependentUpon>
     </Compile>

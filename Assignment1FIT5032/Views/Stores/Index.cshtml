@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Assignment1FIT5032.Models.Store>
+﻿@model IEnumerable<Assignment1FIT5032.Models.RatingAverage>
 
 @{
     ViewBag.Title = "Index";
@@ -27,33 +27,38 @@
         <th>
             @Html.DisplayNameFor(model => model.Operating_Hours)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.averageRating)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Suburb)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Postal_Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Operating_Hours)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-            @Html.ActionLink("Review", "Create", "Ratings", new { id = item.Id }, null)
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Street)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Suburb)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Postal_Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Operating_Hours)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.averageRating)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+        @Html.ActionLink("Review", "Create", "Ratings", new { id = item.Id }, null)
+    </td>
+</tr>
 }
 
 </table>

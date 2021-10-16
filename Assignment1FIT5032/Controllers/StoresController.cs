@@ -17,9 +17,28 @@ namespace Assignment1FIT5032.Controllers
         // GET: Stores
         public ActionResult Index()
         {
-            return View(db.Stores.ToList());
+            var storeList = db.Stores.ToList();
+            var ratingList = db.Ratings.ToList();
+            var query = from store in storeList
+                        join rating in ratingList
+                        on new { id = store.Id }
+                        equals new { id = rating.Store_Id } into allColumn
+                        select new { Id = store.Id, Street = store.Street, Suburb = store.Suburb, State = store.State, Postal_Code = store.Postal_Code, Operating_Hours = store.Operating_Hours, storeRatingsAvg = allColumn.Average(e => e.Store_Rating)};
+            var ratingAverage = new List<RatingAverage>();
+            foreach(var q in query)
+            {
+                ratingAverage.Add(new RatingAverage() { 
+                    Id = q.Id, 
+                    averageRating = (double)Math.Round((decimal)q.storeRatingsAvg, 2), 
+                    Street = q.Street, 
+                    Suburb = q.Suburb, 
+                    State = q.State ,
+                    Postal_Code = q.Postal_Code, 
+                    Operating_Hours = q.Operating_Hours });
+            }
+            return View(ratingAverage);
         }
-
+        //IEnumerable<int, string, string, int, string, double>
         // GET: Stores/Details/5
         public ActionResult Details(int? id)
         {
