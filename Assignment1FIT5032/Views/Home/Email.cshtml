@@ -42,6 +42,9 @@
 
 @using (Html.BeginForm("form1", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    <p> Bulk Email (If Yes, Click On Checkbox)</p>
+    @Html.CheckBox("bulkEmail", false)
+    @*<input type="checkbox" name="bulkEmail">*@
     <p>To: </p>
     <input type="text" name="txtTo" />
     <p>SubjectTitle: </p>
@@ -49,6 +52,6 @@
     <p>Contents: </p>
     <input type="text" name="txtContents" />
     <p>Attachment: </p>
-    <input type = "file" name = "fileAttachment" />
-    <input type = "submit" />
+    <input type="file" name="fileAttachment" />
+    <input type="submit" />
 }
