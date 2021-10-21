@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -205,8 +206,41 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Booking.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Booking.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Booking.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Booking1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Nutritionable.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -261,10 +295,34 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.css" />
     <Content Include="Content\Chart.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\main.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Booking.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Booking.Context.cs</LastGenOutput>
+      <DependentUpon>Booking.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Booking.edmx.sql" />
+    <Content Include="Models\Booking.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Booking1.cs</LastGenOutput>
+      <DependentUpon>Booking.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.edmx.sql" />
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <Content Include="Models\Nutritionable.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Nutritionable.Context.cs</LastGenOutput>
@@ -303,6 +361,20 @@
     <Content Include="Models\StoreRating.edmx.diagram">
       <DependentUpon>StoreRating.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Booking.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Booking.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Booking.edmx.diagram">
+      <DependentUpon>Booking.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
@@ -315,6 +387,87 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales-all.js" />
+    <Content Include="Scripts\locales-all.min.js" />
+    <Content Include="Scripts\locales\af.js" />
+    <Content Include="Scripts\locales\ar-dz.js" />
+    <Content Include="Scripts\locales\ar-kw.js" />
+    <Content Include="Scripts\locales\ar-ly.js" />
+    <Content Include="Scripts\locales\ar-ma.js" />
+    <Content Include="Scripts\locales\ar-sa.js" />
+    <Content Include="Scripts\locales\ar-tn.js" />
+    <Content Include="Scripts\locales\ar.js" />
+    <Content Include="Scripts\locales\az.js" />
+    <Content Include="Scripts\locales\bg.js" />
+    <Content Include="Scripts\locales\bn.js" />
+    <Content Include="Scripts\locales\bs.js" />
+    <Content Include="Scripts\locales\ca.js" />
+    <Content Include="Scripts\locales\cs.js" />
+    <Content Include="Scripts\locales\cy.js" />
+    <Content Include="Scripts\locales\da.js" />
+    <Content Include="Scripts\locales\de-at.js" />
+    <Content Include="Scripts\locales\de.js" />
+    <Content Include="Scripts\locales\el.js" />
+    <Content Include="Scripts\locales\en-au.js" />
+    <Content Include="Scripts\locales\en-gb.js" />
+    <Content Include="Scripts\locales\en-nz.js" />
+    <Content Include="Scripts\locales\eo.js" />
+    <Content Include="Scripts\locales\es-us.js" />
+    <Content Include="Scripts\locales\es.js" />
+    <Content Include="Scripts\locales\et.js" />
+    <Content Include="Scripts\locales\eu.js" />
+    <Content Include="Scripts\locales\fa.js" />
+    <Content Include="Scripts\locales\fi.js" />
+    <Content Include="Scripts\locales\fr-ca.js" />
+    <Content Include="Scripts\locales\fr-ch.js" />
+    <Content Include="Scripts\locales\fr.js" />
+    <Content Include="Scripts\locales\gl.js" />
+    <Content Include="Scripts\locales\he.js" />
+    <Content Include="Scripts\locales\hi.js" />
+    <Content Include="Scripts\locales\hr.js" />
+    <Content Include="Scripts\locales\hu.js" />
+    <Content Include="Scripts\locales\hy-am.js" />
+    <Content Include="Scripts\locales\id.js" />
+    <Content Include="Scripts\locales\is.js" />
+    <Content Include="Scripts\locales\it.js" />
+    <Content Include="Scripts\locales\ja.js" />
+    <Content Include="Scripts\locales\ka.js" />
+    <Content Include="Scripts\locales\kk.js" />
+    <Content Include="Scripts\locales\km.js" />
+    <Content Include="Scripts\locales\ko.js" />
+    <Content Include="Scripts\locales\ku.js" />
+    <Content Include="Scripts\locales\lb.js" />
+    <Content Include="Scripts\locales\lt.js" />
+    <Content Include="Scripts\locales\lv.js" />
+    <Content Include="Scripts\locales\mk.js" />
+    <Content Include="Scripts\locales\ms.js" />
+    <Content Include="Scripts\locales\nb.js" />
+    <Content Include="Scripts\locales\ne.js" />
+    <Content Include="Scripts\locales\nl.js" />
+    <Content Include="Scripts\locales\nn.js" />
+    <Content Include="Scripts\locales\pl.js" />
+    <Content Include="Scripts\locales\pt-br.js" />
+    <Content Include="Scripts\locales\pt.js" />
+    <Content Include="Scripts\locales\ro.js" />
+    <Content Include="Scripts\locales\ru.js" />
+    <Content Include="Scripts\locales\sk.js" />
+    <Content Include="Scripts\locales\sl.js" />
+    <Content Include="Scripts\locales\sm.js" />
+    <Content Include="Scripts\locales\sq.js" />
+    <Content Include="Scripts\locales\sr-cyrl.js" />
+    <Content Include="Scripts\locales\sr.js" />
+    <Content Include="Scripts\locales\sv.js" />
+    <Content Include="Scripts\locales\ta-in.js" />
+    <Content Include="Scripts\locales\th.js" />
+    <Content Include="Scripts\locales\tr.js" />
+    <Content Include="Scripts\locales\ug.js" />
+    <Content Include="Scripts\locales\uk.js" />
+    <Content Include="Scripts\locales\uz.js" />
+    <Content Include="Scripts\locales\vi.js" />
+    <Content Include="Scripts\locales\zh-cn.js" />
+    <Content Include="Scripts\locales\zh-tw.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\main.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -367,6 +520,11 @@
     <Content Include="Views\Ratings\Edit.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Graph\Index.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

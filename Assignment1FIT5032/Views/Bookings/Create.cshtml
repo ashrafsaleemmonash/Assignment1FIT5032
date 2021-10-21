@@ -1,0 +1,92 @@
+﻿@model Assignment1FIT5032.Models.Booking
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href='~/Content/main.css' rel='stylesheet' />
+    <script src='~/Scripts/main.js'></script>
+</head>
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Booking</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "dateOfBooking" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.User_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Id, new { htmlAttributes = new { @class = "form-control" }, @Value = "test" })
+                @Html.ValidationMessageFor(model => model.User_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            headerToolbar: {
+                center: 'addEventButton'
+            },
+            customButtons: {
+                addEventButton: {
+                    text: 'add event...',
+                    click: function () {
+                        var dateStr = prompt('Enter a date in YYYY-MM-DD format');
+                        var date = new Date(dateStr + 'T00:00:00'); // will be in local time
+
+                        if (!isNaN(date.valueOf())) { // valid?
+                            calendar.addEvent({
+                                title: 'dynamic event',
+                                start: date,
+                                allDay: true
+                            });
+                            alert('Great. Now, update your database...');
+                        } else {
+                            alert('Invalid date.');
+                        }
+                    }
+                }
+            },
+            select: function (info) {
+                /*alert("select" + info.startStr);*/
+                var dateOfBooking = document.getElementById("dateOfBooking")
+                dateOfBooking.value = info.startStr;
+            }
+        });
+        calendar.render();
+    });
+
+</script>
+<div>
+    <div id='calendar'></div>
+</div>

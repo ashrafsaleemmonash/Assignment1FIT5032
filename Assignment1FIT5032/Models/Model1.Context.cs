@@ -13,10 +13,10 @@ namespace Assignment1FIT5032.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StoreRatingContainer : DbContext
+    public partial class Model1Container : DbContext
     {
-        public StoreRatingContainer()
-            : base("name=StoreRatingContainer")
+        public Model1Container()
+            : base("name=Model1Container")
         {
         }
     
@@ -25,9 +25,6 @@ namespace Assignment1FIT5032.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Store> Stores { get; set; }
-        public virtual DbSet<Rating> Ratings { get; set; }
-
-        public System.Data.Entity.DbSet<Assignment1FIT5032.Models.Booking> Bookings { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
     }
 }
