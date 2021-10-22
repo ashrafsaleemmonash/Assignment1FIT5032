@@ -22,12 +22,12 @@ namespace Assignment1FIT5032.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Entity<Booking>().ToTable("Bookings");
+            //throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
-
-        public System.Data.Entity.DbSet<Assignment1FIT5032.Models.Booking> Bookings { get; set; }
+        public virtual DbSet<Booking> Bookings { get; set; }
     }
 }

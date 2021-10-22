@@ -17,5 +17,7 @@ namespace Assignment1FIT5032.Models
         public int Id { get; set; }
         public System.DateTime Date { get; set; }
         public string User_Id { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

@@ -12,15 +12,11 @@ namespace Assignment1FIT5032.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Rating
+    public partial class C__MigrationHistory
     {
-        public int Id { get; set; }
-        public long Store_Rating { get; set; }
-        public string Comment { get; set; }
-        public string User_Id { get; set; }
-        public int Store_Id { get; set; }
-    
-        public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Store Store { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

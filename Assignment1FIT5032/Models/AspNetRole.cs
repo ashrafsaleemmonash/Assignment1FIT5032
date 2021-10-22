@@ -12,22 +12,18 @@ namespace Assignment1FIT5032.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Store
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Store()
+        public AspNetRole()
         {
-            this.Ratings = new HashSet<Rating>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int Id { get; set; }
-        public string Street { get; set; }
-        public string Suburb { get; set; }
-        public string State { get; set; }
-        public long Postal_Code { get; set; }
-        public string Operating_Hours { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

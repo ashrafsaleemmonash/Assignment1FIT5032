@@ -7,17 +7,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Assignment1FIT5032.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Assignment1FIT5032.Controllers
 {
     public class BookingsController : Controller
     {
-        private StoreRatingContainer db = new StoreRatingContainer();
+        private BookingContainer db = new BookingContainer();
 
+        //public List<Booking> bookings = new List<Booking>();
         // GET: Bookings
         public ActionResult Index()
         {
-            return View(db.Bookings.ToList());
+            var bookings = db.Bookings.Include(b => b.AspNetUser);
+            return View(bookings.ToList());
         }
 
         // GET: Bookings/Details/5
@@ -35,9 +38,21 @@ namespace Assignment1FIT5032.Controllers
             return View(booking);
         }
 
+        public void GetBook()
+        {
+            var bookeds = db.Bookings.ToList();
+            List<string> bookings = new List<string>();
+            foreach (var b in bookeds)
+            {
+                bookings.Add(b.Date.ToString("yyyy-MM-dd"));
+            }
+            ViewBag.bookings = bookings;
+        }
+
         // GET: Bookings/Create
         public ActionResult Create()
         {
+            GetBook();
             return View();
         }
 
@@ -50,11 +65,23 @@ namespace Assignment1FIT5032.Controllers
         {
             if (ModelState.IsValid)
             {
+                booking.User_Id = User.Identity.GetUserId();
+                var dates = db.Bookings.ToList();
+                foreach(var d in dates)
+                {
+                    if(d.Date == booking.Date)
+                    {
+                        GetBook();
+                        ModelState.AddModelError(nameof(Booking.Date), "Date has already been booked.");
+                        return View(booking);
+                    } 
+                }
                 db.Bookings.Add(booking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.User_Id = new SelectList(db.AspNetUsers, "Id", "Email", booking.User_Id);
             return View(booking);
         }
 
@@ -70,6 +97,7 @@ namespace Assignment1FIT5032.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.User_Id = new SelectList(db.AspNetUsers, "Id", "Email", booking.User_Id);
             return View(booking);
         }
 
@@ -86,6 +114,7 @@ namespace Assignment1FIT5032.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.User_Id = new SelectList(db.AspNetUsers, "Id", "Email", booking.User_Id);
             return View(booking);
         }
 

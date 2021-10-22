@@ -206,6 +206,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Booking.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,23 +236,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Booking.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>Booking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Nutritionable.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -257,14 +257,14 @@
       <DependentUpon>Nutritionable.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Nutritional_Value.cs">
-      <DependentUpon>Nutritionable.tt</DependentUpon>
+      <DependentUpon>Booking.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rating.cs">
-      <DependentUpon>StoreRating.tt</DependentUpon>
+      <DependentUpon>Booking.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RatingAverage.cs" />
     <Compile Include="Models\Store.cs">
-      <DependentUpon>StoreRating.tt</DependentUpon>
+      <DependentUpon>Booking.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StoreRating.Context.cs">
       <AutoGen>True</AutoGen>
@@ -312,17 +312,7 @@
       <LastGenOutput>Booking1.cs</LastGenOutput>
       <DependentUpon>Booking.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Models\Model1.edmx.sql" />
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Models\Nutritionable.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Nutritionable.Context.cs</LastGenOutput>
@@ -360,13 +350,6 @@
     </EntityDeploy>
     <Content Include="Models\StoreRating.edmx.diagram">
       <DependentUpon>StoreRating.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <EntityDeploy Include="Models\Booking.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
