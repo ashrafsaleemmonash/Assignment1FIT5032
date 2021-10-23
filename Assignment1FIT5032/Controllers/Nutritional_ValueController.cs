@@ -15,7 +15,7 @@ namespace Assignment1FIT5032.Controllers
         private NutritionableContainer db = new NutritionableContainer();
 
         // GET: Nutritional_Value
-        [Authorize(Roles = "Admin,Default")]
+        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
         public ActionResult Index(string sortOrder) 
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "caloriesDesc" : "";
@@ -33,7 +33,8 @@ namespace Assignment1FIT5032.Controllers
             return View(nutrition);
         }
 
-        // GET: Nutritional_Value/Details/5
+        // GET: Nutritional_Value/Details/5\
+        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -49,7 +50,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Nutritional_Value/Create
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Create()
         {
             return View();
@@ -60,7 +61,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only LAdmin & Moderator
         public ActionResult Create([Bind(Include = "Id,Food,Serving_Gram,Calories,Calories_From_Fat,Total_Fat_Gram,Total_Fat_Daily_Value_By_Precentage,Sodium_Gram,Sodium_Daily_Value_By_Precentage,Potassium_Gram,Potassium_Daily_Value_By_Precentage,Total_Carbo_Hydrate_Gram,Total_Carbo_Hydrate_Daily_Value_By_Precentage,Dietary_Fiber_Gram,Dietary_Fiber_Daily_Value_By_Precentage,Sugar_Gram,Protein_Gram,Vitamin_A_Daily_Value_By_Precentage,Vitamin_C_Daily_Value_By_Precentage,Calcium_Daily_Value_By_Precentage,Iron_Daily_Value_By_Precentage,Saturated_Daily_Value_By_Precentage,Saturated_Milligram,Chole_Sterol_Daily_Value_By_Precentage,Chole_Sterol_Milligram,Food_Type")] Nutritional_Value nutritional_Value)
         {
             if (ModelState.IsValid)
@@ -75,7 +76,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Nutritional_Value/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -95,7 +96,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Edit([Bind(Include = "Id,Food,Serving_Gram,Calories,Calories_From_Fat,Total_Fat_Gram,Total_Fat_Daily_Value_By_Precentage,Sodium_Gram,Sodium_Daily_Value_By_Precentage,Potassium_Gram,Potassium_Daily_Value_By_Precentage,Total_Carbo_Hydrate_Gram,Total_Carbo_Hydrate_Daily_Value_By_Precentage,Dietary_Fiber_Gram,Dietary_Fiber_Daily_Value_By_Precentage,Sugar_Gram,Protein_Gram,Vitamin_A_Daily_Value_By_Precentage,Vitamin_C_Daily_Value_By_Precentage,Calcium_Daily_Value_By_Precentage,Iron_Daily_Value_By_Precentage,Saturated_Daily_Value_By_Precentage,Saturated_Milligram,Chole_Sterol_Daily_Value_By_Precentage,Chole_Sterol_Milligram,Food_Type")] Nutritional_Value nutritional_Value)
         {
             if (ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Nutritional_Value/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Delete(long? id)
         {
             if (id == null)
@@ -127,13 +128,13 @@ namespace Assignment1FIT5032.Controllers
         // POST: Nutritional_Value/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult DeleteConfirmed(long id)
         {
             Nutritional_Value nutritional_Value = db.Nutritional_Value.Find(id);
             db.Nutritional_Value.Remove(nutritional_Value);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index"); 
         }
 
         protected override void Dispose(bool disposing)

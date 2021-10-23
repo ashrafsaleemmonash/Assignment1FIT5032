@@ -6,42 +6,10 @@
 
 <h2>Email</h2>
 
-<!--<form action="form1" method="post">
-    <div>
-        <p>To: </p>
-        <input type="text" name="txtTo" />
-        <p>SubjectTitle: </p>
-        <input type="text" name="txtSubjectTitle" />
-        <p>Contents: </p>
-        <input type="text" name="txtContents" />
-        <p>Attachment: </p>
-        <input type="file" name="fileAttachment"/>-->
-@*<input asp-for="FileUpload.FormFile" type="file" name="fileAttachment" multiple>*@
-<!--<br />
-    <input type="submit" value="Submit Form" />
-</div>-->
-@*<table>
-        <tr>
-            <td>To: </td>
-            <td><input type="text" name="txtTo" /></td>
-        </tr>
-        <tr>
-            <td>SubjectTitle: </td>
-            <td><input type="text" name="txtSubjectTitle" /></td>
-        </tr>
-        <tr>
-            <td>Contents: </td>
-            <td><input type="text" name="txtContents" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Submit Form" /></td>
-        </tr>
-    </table>
-    <input asp-for="FileUpload.FormFile" type="file">*@
-<!--</form>-->
-
+@*Using form to send data to controller*@ 
 @using (Html.BeginForm("form1", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    //Email Details Required To Be Filled Up-+
     <p> Bulk Email (If Yes, Click On Checkbox)</p>
     @Html.CheckBox("bulkEmail", false)
     @*<input type="checkbox" name="bulkEmail">*@

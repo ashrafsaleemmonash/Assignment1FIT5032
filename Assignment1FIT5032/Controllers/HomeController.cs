@@ -47,12 +47,13 @@ namespace Assignment1FIT5032.Controllers
             return View();
         }
 
-        // Email
+        // Email Function
         [HttpPost]
-        //string txtTo, string txtSubjectTitle, string txtContents,
+        //Reference For Overall Structure: https://forums.asp.net/t/1294121.aspx?message+IsBodyHtml+true+in+SmtpMail+mail+sending
+        //Reference For Attachment: https://www.c-sharpcorner.com/UploadFile/sourabh_mishra1/sending-an-e-mail-with-attachment-using-Asp-Net-mvc/
         public async Task<ActionResult> form1(string txtTo, string txtSubjectTitle, string txtContents, HttpPostedFileBase fileAttachment, bool bulkEmail)
         {
-
+            // IF Bulk Email Execute
             SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
             if (bulkEmail)
             {
@@ -61,23 +62,25 @@ namespace Assignment1FIT5032.Controllers
                
                 using (MailMessage mm = new MailMessage())
                 {
-
+                    //Bulk Email Logic Using For 
                     foreach (var user in users)
                     {
                         mm.To.Add(user.Email);
                     }
+                    // Email Details 
                     mm.From = new MailAddress(smtpSection.From);
                     mm.Subject = txtSubjectTitle;
                     mm.Body = txtContents;
                     mm.IsBodyHtml = false;
 
-                    
+                    // Adding atatchment
                     Attachment data = new Attachment(
                     fileAttachment.InputStream,
                     fileAttachment.FileName);
 
                     mm.Attachments.Add(data);
 
+                    // SMTP Email Logic
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = smtpSection.Network.Host;
                     smtp.EnableSsl = smtpSection.Network.EnableSsl;
@@ -90,21 +93,24 @@ namespace Assignment1FIT5032.Controllers
                 }
 
             }
+            // Else Execute Individual Emailing
             else
             {
                 using (MailMessage mm = new MailMessage(smtpSection.From, txtTo))
                 {
-
+                    // Email Details 
                     mm.Subject = txtSubjectTitle;
                     mm.Body = txtContents;
                     mm.IsBodyHtml = false;
 
+                    // Adding atatchment
                     Attachment data = new Attachment(
                     fileAttachment.InputStream,
                     fileAttachment.FileName);
 
                     mm.Attachments.Add(data);
 
+                    // SMTP Email Logic
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = smtpSection.Network.Host;
                     smtp.EnableSsl = smtpSection.Network.EnableSsl;

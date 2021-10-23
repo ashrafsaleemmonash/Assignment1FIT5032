@@ -6,7 +6,9 @@
 }
 
 <head>
+    @*Calendar CSS library*@
     <link href='~/Content/main.css' rel='stylesheet' />
+    @*Javascript Library*@ 
     <script src='~/Scripts/main.js'></script>
 </head>
 
@@ -28,14 +30,6 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.User_Id, "User_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("User_Id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.User_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -49,48 +43,29 @@
 </div>
 
 <script>
-
+    //Reference https://fullcalendar.io/docs
+    //Calender Function
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
+            // Allowing for mouse-selection of date (as in a date is selectable witha click)
             selectable: true,
-            headerToolbar: {
-                center: 'addEventButton'
-            },
-            customButtons: {
-                addEventButton: {
-                    text: 'add event...',
-                    click: function () {
-                        var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-                        var date = new Date(dateStr + 'T00:00:00'); // will be in local time
-
-                        if (!isNaN(date.valueOf())) { // valid?
-                            calendar.addEvent({
-                                title: 'dynamic event',
-                                start: date,
-                                allDay: true
-                            });
-                            alert('Great. Now, update your database...');
-                        } else {
-                            alert('Invalid date.');
-                        }
-                    }
-                }
-            },
+            // Function to set the value of the date of booking
             select: function (info) {
                 /*alert("select" + info.startStr);*/
                 var dateOfBooking = document.getElementById("dateOfBooking")
                 dateOfBooking.value = info.startStr;
             },
+            // Displaying each booked date on the calendar
             events: [
             @foreach (var item in ViewBag.bookings){
                 <text> { title: 'Booked', start: '@item' }, </text>
                 }
                 {}
-                @*@item.Date*@
             ]
         });
+        // Rendering calendar
         calendar.render();
     });
 

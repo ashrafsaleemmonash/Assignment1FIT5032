@@ -6,6 +6,7 @@
 
 <h2>Index</h2>
 
+@*Reference: https://www.youtube.com/watch?v=LYmoTclITAM*@
 <head>
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -20,26 +21,21 @@
         // instantiates the pie chart, passes in the data and
         // draws it.
 
+        //Creating function to draw data
         function drawChart() {
 
             // Create the data table.
             var data = new google.visualization.DataTable();
+            //Setting (datatype, column)
             data.addColumn("string", "Food")
             data.addColumn("number", "calories")
-            //data.addRows([
-            //     ['Mushrooms', 3],
-            //     ['Onions', 1],
-            //     ['Olives', 1],
-            //     ['Zucchini', 1],
-            //     ['Pepperoni', 2]
-            // ]);
-            // Set chart options
+            // Graph options
             var options = {
                 'title': 'Top 10 Food With The Heighest Calories',
                 'width': 1000,
                 'height': 500
             };
-
+            // Creating a Ajx call to recieve the data of from the database by calling the GetData function from graph controller
             $.ajax({
                 url: '@Url.Action("GetData", "Graph")',
                 dataType: "json",
@@ -51,11 +47,6 @@
                         data.addRow([graphData.Food, graphData.Calories]);
                     });
                 },
-                //success: function (d) {
-                //    $.each(d, function (index, graphData){
-                //        console.log([graphData.Food, graphData.Calories]);
-                //    });
-                //   },
                    error: function (xhr) {
                         alert("Error" + xhr)
                     }

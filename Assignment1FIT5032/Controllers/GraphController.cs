@@ -23,10 +23,10 @@ namespace Assignment1FIT5032.Controllers
             // Initialization.  
 
 
-                // Loading.  
+                // Getting nutrional db value as a list  
                 var nutritional = db.Nutritional_Value.ToList();
 
-                // Setting.  
+                // Filtering data to get the grouping of food & calories and arranging them in a descending order  
                 var graphData = nutritional.GroupBy(r => new
                 {
                     r.Food,
@@ -38,9 +38,10 @@ namespace Assignment1FIT5032.Controllers
                     g.Key.Calories 
                  }).OrderByDescending(q => q.Calories).ToList();
 
+            // Filtering to only get the top 10 values
             graphData = graphData.Take(10).Select(p => p).ToList();
-            // Loading drop down lists.
-            //return (Json(graphData, JsonRequestBehavior.AllowGet));
+
+            //returning json format of the data values
             return (Json(graphData, JsonRequestBehavior.AllowGet));
         }
 
