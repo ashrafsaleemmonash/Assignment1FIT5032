@@ -56,6 +56,7 @@
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
         @Html.ActionLink("Details", "Details", new { id = item.Id }) |
         @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+        @*Sending information to the ratings create page & addding a link to re-direct towards it*@
         @Html.ActionLink("Review", "Create", "Ratings", new { id = item.Id }, null)
     </td>
 </tr>

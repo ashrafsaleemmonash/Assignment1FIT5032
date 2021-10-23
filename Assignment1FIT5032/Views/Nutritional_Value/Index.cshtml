@@ -25,6 +25,7 @@
             @Html.DisplayNameFor(model => model.Serving_Gram)
         </th>
         <th>
+            @*To enable sorting*@
             @*@Html.DisplayNameFor(model => model.Calories)*@
             @Html.ActionLink("Calories ⬍", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>

@@ -57,7 +57,7 @@ namespace Assignment1FIT5032
             //app.UseFacebookAuthentication(
             //   appId: "",
             //   appSecret: "");
-
+            // Enabling google authentication for registeration & signup       
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                ClientId = "356947921943-sko52f7s1q219ml95bkc14q4frrt5ec3.apps.googleusercontent.com",

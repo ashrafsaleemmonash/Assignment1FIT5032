@@ -70,6 +70,7 @@ namespace Assignment1FIT5032.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        //Include information about the store to add it to rating
         public ActionResult Create([Bind(Include = "Id,Store_Rating,Comment,User_Id,Store_Id")] Rating rating)
         {
             if (ModelState.IsValid)
