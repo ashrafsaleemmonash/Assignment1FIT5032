@@ -11,11 +11,13 @@ namespace Assignment1FIT5032.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Nutritional_Value
     {
         public long Id { get; set; }
         public string Food { get; set; }
+        [DisplayName("Serving Gram")]
         public double Serving_Gram { get; set; }
         public double Calories { get; set; }
         public double Calories_From_Fat { get; set; }

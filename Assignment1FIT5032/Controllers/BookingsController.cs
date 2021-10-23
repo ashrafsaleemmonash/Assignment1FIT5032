@@ -70,14 +70,21 @@ namespace Assignment1FIT5032.Controllers
         {
             if (ModelState.IsValid)
             {
+                //To get the user who is booking ID
                 booking.User_Id = User.Identity.GetUserId();
+                //Getting the dates from the database
                 var dates = db.Bookings.ToList();
+                //Looping through each date in the database
                 foreach(var d in dates)
                 {
+                    //If the date & the user entered date matches do this:
                     if(d.Date == booking.Date)
                     {
+                        // To reset the GetBook to ensure a re-render of the booked dates are made
                         GetBook();
+                        // Adding a model error to say what happens if an error occurs (Date book error handling)
                         ModelState.AddModelError(nameof(Booking.Date), "Date has already been booked.");
+                        // Return back the view
                         return View(booking);
                     } 
                 }
@@ -85,8 +92,7 @@ namespace Assignment1FIT5032.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.User_Id = new SelectList(db.AspNetUsers, "Id", "Email", booking.User_Id);
+            //ViewBag.User_Id = new SelectList(db.AspNetUsers, "Id", "Email", booking.User_Id);
             return View(booking);
         }
 

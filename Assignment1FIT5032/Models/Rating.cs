@@ -11,11 +11,18 @@ namespace Assignment1FIT5032.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Rating
     {
         public int Id { get; set; }
+        // To Enforce Range Value Of 1 to 5
+        [Range(1, 5, ErrorMessage = "The value must between 1 & 5")]
+
+        // To Ensure Minimum & Max Value Is Added To Comment
         public long Store_Rating { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [StringLength(300, MinimumLength = 3, ErrorMessage = "Please write a review between 3 to 300 characters long.")]
         public string Comment { get; set; }
         public string User_Id { get; set; }
         public int Store_Id { get; set; }
