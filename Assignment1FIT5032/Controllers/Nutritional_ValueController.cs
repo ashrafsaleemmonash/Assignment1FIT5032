@@ -16,9 +16,21 @@ namespace Assignment1FIT5032.Controllers
 
         // GET: Nutritional_Value
         [Authorize(Roles = "Admin,Default")]
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder) 
         {
-            return View(db.Nutritional_Value.ToList());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "caloriesDesc" : "";
+            var nutrition = from n in db.Nutritional_Value
+                            select n;
+            switch (sortOrder)
+            {
+                case "caloriesDesc":
+                    nutrition = nutrition.OrderByDescending(n => n.Calories);
+                    break;
+                default:
+                    nutrition = nutrition.OrderBy(n => n.Calories);
+                    break;
+            }
+            return View(nutrition);
         }
 
         // GET: Nutritional_Value/Details/5

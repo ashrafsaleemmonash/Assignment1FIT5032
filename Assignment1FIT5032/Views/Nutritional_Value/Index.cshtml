@@ -12,8 +12,9 @@
 </p>
 <div>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-    
+
     <a onclick="showMore()" id="showMoreId" style="margin-left:20px">Show More</a>
+    
 </div>
 <table class="table" id="myTable">
     <tr>
@@ -24,10 +25,12 @@
             @Html.DisplayNameFor(model => model.Serving_Gram)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Calories)
+            @*@Html.DisplayNameFor(model => model.Calories)*@
+            @Html.ActionLink("Calories ⬍", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Calories_From_Fat)
+            
         </th>
         <th style="display:none">
             @Html.DisplayNameFor(model => model.Total_Fat_Gram)
