@@ -15,7 +15,7 @@ namespace Assignment1FIT5032.Controllers
         private StoreRatingContainer db = new StoreRatingContainer();
 
         // GET: Stores
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Index()
         {
             var storeList = db.Stores.ToList();
@@ -24,24 +24,37 @@ namespace Assignment1FIT5032.Controllers
                         join rating in ratingList
                         on new { id = store.Id }
                         equals new { id = rating.Store_Id } into allColumn
-                        select new { Id = store.Id, Street = store.Street, Suburb = store.Suburb, State = store.State, Postal_Code = store.Postal_Code, Operating_Hours = store.Operating_Hours, storeRatingsAvg = allColumn.Average(e => e.Store_Rating)};
+                        select new { Id = store.Id, Street = store.Street, Suburb = store.Suburb, State = store.State, Postal_Code = store.Postal_Code, Operating_Hours = store.Operating_Hours /*storeRatingsAvg = allColum*/ };
+
             var ratingAverage = new List<RatingAverage>();
-            foreach(var q in query)
+            foreach (var store in storeList)
             {
-                ratingAverage.Add(new RatingAverage() { 
-                    Id = q.Id, 
-                    averageRating = (double)Math.Round((decimal)q.storeRatingsAvg, 2), 
-                    Street = q.Street, 
-                    Suburb = q.Suburb, 
-                    State = q.State ,
-                    Postal_Code = q.Postal_Code, 
-                    Operating_Hours = q.Operating_Hours });
+                var subList = ratingList.Where(p => p.Store_Id == store.Id);
+                var average = 0.0;
+                foreach (var rating in subList)
+                {
+                    average += rating.Store_Rating;
+                }
+                if (subList.Count() != 0)
+                {
+                    average = average / subList.Count();
+                }
+                ratingAverage.Add(new RatingAverage()
+                {
+                    Id = store.Id,
+                    averageRating = (double)Math.Round((decimal) average , 2),
+                    Street = store.Street,
+                    Suburb = store.Suburb,
+                    State = store.State,
+                    Postal_Code = store.Postal_Code,
+                    Operating_Hours = store.Operating_Hours
+                });
             }
             return View(ratingAverage);
         }
         //IEnumerable<int, string, string, int, string, double>
         // GET: Stores/Details/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Details(int? id)
         {
             if (id == null)

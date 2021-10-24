@@ -17,15 +17,17 @@ namespace Assignment1FIT5032.Controllers
 
         //public List<Booking> bookings = new List<Booking>();
         // GET: Bookings
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.AspNetUser);
+            var userId = User.Identity.GetUserId();
+            var bookings = db.Bookings.Where(s => s.User_Id == userId).ToList();
+            //var bookings = db.Bookings.Include(b => b.AspNetUser);
             return View(bookings.ToList());
         }
 
         // GET: Bookings/Details/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -53,7 +55,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Bookings/Create
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Create()
         {
             GetBook();
@@ -65,7 +67,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Create([Bind(Include = "Id,Date,User_Id")] Booking booking)
         {
             if (ModelState.IsValid)
@@ -97,7 +99,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Bookings/Edit/5
-        [Authorize(Roles = "Admin")] // Allowing Only Admin
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -118,7 +120,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin
+        [Authorize(Roles = "Admin,Moderator")] // Allowing Only Admin & Moderator
         public ActionResult Edit([Bind(Include = "Id,Date,User_Id")] Booking booking)
         {
             if (ModelState.IsValid)
@@ -132,7 +134,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Bookings/Delete/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -150,7 +152,7 @@ namespace Assignment1FIT5032.Controllers
         // POST: Bookings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult DeleteConfirmed(int id)
         {
             Booking booking = db.Bookings.Find(id);

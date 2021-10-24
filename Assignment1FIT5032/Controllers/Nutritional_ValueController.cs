@@ -15,8 +15,8 @@ namespace Assignment1FIT5032.Controllers
         private NutritionableContainer db = new NutritionableContainer();
 
         // GET: Nutritional_Value
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
 
+        [Authorize]// Allowing Only Logined In Accounts
         //Sorting Function
         //Reference: https://forums.asp.net/t/2113287.aspx?Having+trouble+understand+this+Sorcery+ViewBag+NameSortParm+String+IsNullOrEmpty+sortOrder+name_desc+ViewBag+DateSortParm+sortOrder+Date+date_desc+Date+
         public ActionResult Index(string sortOrder) 
@@ -49,7 +49,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Nutritional_Value/Details/5\
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Details(long? id)
         {
             if (id == null)

@@ -15,7 +15,7 @@ namespace Assignment1FIT5032.Controllers
     {
         private StoreRatingContainer db = new StoreRatingContainer();
         // GET: Ratings
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -24,7 +24,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Ratings/Details/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,7 +41,7 @@ namespace Assignment1FIT5032.Controllers
 
         // GET: Ratings/Create
         [Authorize]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Create(int? id)
         {
             if(id != null)
@@ -69,7 +69,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         //Include information about the store to add it to rating
         public ActionResult Create([Bind(Include = "Id,Store_Rating,Comment,User_Id,Store_Id")] Rating rating)
         {
@@ -84,7 +84,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Ratings/Edit/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace Assignment1FIT5032.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Edit([Bind(Include = "Id,Store_Rating,Comment,User_Id,Store_Id")] Rating rating)
         {
             if (ModelState.IsValid)
@@ -117,7 +117,7 @@ namespace Assignment1FIT5032.Controllers
         }
 
         // GET: Ratings/Delete/5
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace Assignment1FIT5032.Controllers
         // POST: Ratings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult DeleteConfirmed(int id)
         {
             Rating rating = db.Ratings.Find(id);

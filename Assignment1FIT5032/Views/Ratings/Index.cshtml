@@ -7,9 +7,6 @@
 
 <h2>Rating</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -18,9 +15,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Comment)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.User_Id)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Store_Id)
         </th>
@@ -35,9 +32,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Comment)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.User_Id)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Store_Id)
         </td>

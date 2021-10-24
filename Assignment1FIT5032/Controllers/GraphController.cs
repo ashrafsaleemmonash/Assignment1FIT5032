@@ -13,6 +13,7 @@ namespace Assignment1FIT5032.Controllers
     {
         private NutritionableContainer db = new NutritionableContainer();
         // GET: Graph
+        [Authorize]// Allowing Only Logined In Accounts
         public ActionResult Index()
         {
             return View();
