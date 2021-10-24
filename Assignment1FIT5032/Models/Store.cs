@@ -11,7 +11,9 @@ namespace Assignment1FIT5032.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Store
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +23,17 @@ namespace Assignment1FIT5032.Models
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
         public string Street { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
         public string Suburb { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
         public string State { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Postal Code")]
         public long Postal_Code { get; set; }
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Operating Hours")]
         public string Operating_Hours { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

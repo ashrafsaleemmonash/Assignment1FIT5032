@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Nutritional Value Information</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,19 +19,20 @@
 <table class="table" id="myTable">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Food)
+            @*@Html.DisplayNameFor(model => model.Food)*@
+            @Html.ActionLink("Food ⬍", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Serving_Gram)
+            @*@Html.DisplayNameFor(model => model.Serving_Gram)*@
+            @Html.ActionLink("Serving Gram ⬍", "Index", new { sortOrder = ViewBag.ServingSortParm })
         </th>
         <th>
             @*To enable sorting*@
-            @*@Html.DisplayNameFor(model => model.Calories)*@
-            @Html.ActionLink("Calories ⬍", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("Calories ⬍", "Index", new { sortOrder = ViewBag.CaloriesSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Calories_From_Fat)
-            
+            @*@Html.DisplayNameFor(model => model.Calories_From_Fat)*@
+            @Html.ActionLink("Calories From Fat ⬍", "Index", new { sortOrder = ViewBag.CaloriesFromFatSortParm })
         </th>
         <th style="display:none">
             @Html.DisplayNameFor(model => model.Total_Fat_Gram)

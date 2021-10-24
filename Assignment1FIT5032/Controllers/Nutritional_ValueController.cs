@@ -16,9 +16,15 @@ namespace Assignment1FIT5032.Controllers
 
         // GET: Nutritional_Value
         [Authorize(Roles = "Admin,Moderator,Default")] // Allowing Only Logined In Accounts
+
+        //Sorting Function
+        //Reference: https://forums.asp.net/t/2113287.aspx?Having+trouble+understand+this+Sorcery+ViewBag+NameSortParm+String+IsNullOrEmpty+sortOrder+name_desc+ViewBag+DateSortParm+sortOrder+Date+date_desc+Date+
         public ActionResult Index(string sortOrder) 
         {
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "caloriesDesc" : "";
+            ViewBag.CaloriesSortParm = String.IsNullOrEmpty(sortOrder) ? "caloriesDesc" : "";
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "nameDesc" : "";
+            ViewBag.ServingSortParm = String.IsNullOrEmpty(sortOrder) ? "servingDesc" : "";
+            ViewBag.CaloriesFromFatSortParm = String.IsNullOrEmpty(sortOrder) ? "caloriesFromFat" : "";
             var nutrition = from n in db.Nutritional_Value
                             select n;
             switch (sortOrder)
@@ -26,8 +32,17 @@ namespace Assignment1FIT5032.Controllers
                 case "caloriesDesc":
                     nutrition = nutrition.OrderByDescending(n => n.Calories);
                     break;
+                case "nameDesc":
+                    nutrition = nutrition.OrderBy(n => n.Food);
+                    break;
+                case "servingDesc":
+                    nutrition = nutrition.OrderByDescending(n => n.Serving_Gram);
+                    break;
+                case "caloriesFromFat":
+                    nutrition = nutrition.OrderByDescending(n => n.Calories_From_Fat);
+                    break;
                 default:
-                    nutrition = nutrition.OrderBy(n => n.Calories);
+                    nutrition = nutrition.OrderBy(n => n.Food);
                     break;
             }
             return View(nutrition);

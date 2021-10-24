@@ -12,35 +12,110 @@ namespace Assignment1FIT5032.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class Nutritional_Value
     {
         public long Id { get; set; }
+
+
+        [Required(ErrorMessage = "Please Enter A Value")]
         public string Food { get; set; }
+        
+        [Required(ErrorMessage = "Please Enter A Value")]
         [DisplayName("Serving Gram")]
         public double Serving_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
         public double Calories { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Calories From Fat")]
         public double Calories_From_Fat { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Total Fat Gram")]
         public double Total_Fat_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Total Fat Daily Value By Percentage")]
         public double Total_Fat_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Sodium Gram")]
+
         public double Sodium_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Sodium Daily Value By Percentage")]
         public double Sodium_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Potassium Gram")]
         public double Potassium_Gram { get; set; }
+
+        [Required(ErrorMessage = "Potassium Daily Value By Percentage")]
+        [DisplayName("Serving Gram")]
         public double Potassium_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Total Carbo Hydrate Gra,")]
         public double Total_Carbo_Hydrate_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Total Carbo Hydrate Daily Value By Percentage")]
         public double Total_Carbo_Hydrate_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Dietary Fiber Gram")]
         public double Dietary_Fiber_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Dietary Fiber Daily Value By Percentage")]
         public double Dietary_Fiber_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Sugar Gram")]
         public double Sugar_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Protein Gram")]
         public double Protein_Gram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Serving Gram")]
         public double Vitamin_A_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Vitamin C Daily Value By Percentage")]
         public double Vitamin_C_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Calcium Daily Value By Percentage")]
         public double Calcium_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Iron Daily Value By Percentage")]
         public double Iron_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Saturated Daily Value By Percentage")]
         public Nullable<double> Saturated_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Satured Milligram")]
         public Nullable<double> Saturated_Milligram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Chole Sterol Daily Value By Precentage")]
         public double Chole_Sterol_Daily_Value_By_Precentage { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Chole Sterol Milligram")]
         public double Chole_Sterol_Milligram { get; set; }
+
+        [Required(ErrorMessage = "Please Enter A Value")]
+        [DisplayName("Food Type")]
         public string Food_Type { get; set; }
         public System.DateTime Date { get; set; }
     }
