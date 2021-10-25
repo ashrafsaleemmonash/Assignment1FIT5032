@@ -42,7 +42,7 @@ namespace Assignment1FIT5032.Controllers
 
         public ActionResult Email()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "You Email page.";
 
             return View();
         }
@@ -78,8 +78,11 @@ namespace Assignment1FIT5032.Controllers
                     fileAttachment.InputStream,
                     fileAttachment.FileName);
 
-                    mm.Attachments.Add(data);
-
+                    if(data != null)
+                    {
+                        mm.Attachments.Add(data);
+                    }
+                        
                     // SMTP Email Logic
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = smtpSection.Network.Host;
@@ -107,9 +110,10 @@ namespace Assignment1FIT5032.Controllers
                     Attachment data = new Attachment(
                     fileAttachment.InputStream,
                     fileAttachment.FileName);
-
-                    mm.Attachments.Add(data);
-
+                    if (data != null)
+                    {
+                        mm.Attachments.Add(data);
+                    }
                     // SMTP Email Logic
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = smtpSection.Network.Host;

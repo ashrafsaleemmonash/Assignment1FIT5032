@@ -150,7 +150,9 @@ namespace Assignment1FIT5032.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Store store = db.Stores.Find(id);
+            var rating = db.Ratings.Where(x => x.Store_Id == id);
             db.Stores.Remove(store);
+            db.Ratings.RemoveRange(rating);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

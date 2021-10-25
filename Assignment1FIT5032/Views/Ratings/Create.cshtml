@@ -15,6 +15,7 @@
     <h4>Rating</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p> Please added a rating from 1 to 5</p>
     <div class="form-group">
         @Html.LabelFor(model => model.Store_Rating, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -22,7 +23,7 @@
             @Html.ValidationMessageFor(model => model.Store_Rating, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <p> Please write between 3 characters (min) to a max of 300 characters</p>
     <div class="form-group">
         @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

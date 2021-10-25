@@ -29,11 +29,13 @@
                     <li>@Html.ActionLink("Review", "Index", "Ratings")</li>
                     <li>@Html.ActionLink("Nutritional Value Graph", "Index", "Graph")</li>
                     <li>@Html.ActionLink("Booking", "Create", "Bookings")</li>
+                    <li>@Html.ActionLink("Email", "Email", "Home");</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+    <br />
     <div class="container body-content">
         @RenderBody()
         <hr />
